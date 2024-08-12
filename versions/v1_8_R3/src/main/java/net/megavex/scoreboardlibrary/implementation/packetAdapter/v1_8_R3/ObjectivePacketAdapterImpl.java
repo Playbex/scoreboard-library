@@ -93,7 +93,8 @@ public class ObjectivePacketAdapterImpl implements ObjectivePacketAdapter {
     PacketAccessors.OBJECTIVE_NAME_FIELD.set(packet, objectiveName);
     PacketAccessors.OBJECTIVE_MODE_FIELD.set(packet, ObjectiveConstants.mode(packetType));
 
-    String legacyValue = LegacyFormatUtil.limitLegacyText(LegacyComponentSerializer.legacySection().serialize(value), ObjectiveConstants.LEGACY_VALUE_CHAR_LIMIT);
+    String legacyValue = LegacyComponentSerializer.legacySection().serialize(value);
+
     PacketAccessors.OBJECTIVE_DISPLAY_NAME_FIELD.set(packet, legacyValue);
 
     IScoreboardCriteria.EnumScoreboardHealthDisplay nmsRenderType;
